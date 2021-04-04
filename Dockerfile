@@ -122,13 +122,20 @@ RUN mkdir -p /home/renderer/src \
 # Configure stylesheet
 RUN mkdir -p /home/renderer/src \
  && cd /home/renderer/src \
- && git clone --single-branch --branch v5.2.0 https://github.com/AlexAX135/openstreetmap-carto.git --depth 1 \
+ && git clone --single-branch --branch v5.2.0 https://github.com/gravitystorm/openstreetmap-carto.git --depth 1 \
  && cd openstreetmap-carto \
  && rm -rf .git \
  && npm install -g carto@0.18.2 \
  && carto project.mml > mapnik.xml \
  && scripts/get-shapefiles.py \
  && rm /home/renderer/src/openstreetmap-carto/data/*.zip
+ && cd /home/renderer/src \
+  && git clone https://github.com/Jezternz/openstreetmap-carto-vizall-light.git \
+  && git -C openstreetmap-carto-vizall-light checkout vizall.light.0.7 \
+  && cd openstreetmap-carto-vizall-light \
+  && rm -rf .git \
+  && carto project.mml > mapnik.xml \
+  && cp -a /home/renderer/src/openstreetmap-carto/data/. /home/renderer/src/openstreetmap-carto-vizall-light/data/
  
 # Download render_list_geo
 RUN wget https://raw.githubusercontent.com/alx77/render_list_geo.pl/master/render_list_geo.pl \
