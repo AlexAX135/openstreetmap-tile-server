@@ -114,7 +114,7 @@ if [ "$1" = "run" ]; then
     
     # start pre rendering
     if [ "$PRERENDER" = "enabled" ] || [ "$PRERENDER" = "1" ]; then
-      ./render_list_geo.pl -n 2 -m default -x 3.275104 -X 7.103310 -y 50.758069 -Y 53.662826 -z 1 -Z 8 -m ajt
+      ./render_list_geo.pl -n 2 -m default -x 3.275104 -X 7.103310 -y 50.758069 -Y 53.662826 -z 1 -Z 16 -m ajt
     fi
 
     # Run while handling docker stop's SIGTERM
