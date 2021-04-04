@@ -136,9 +136,19 @@ RUN mkdir -p /home/renderer/src \
   && rm -rf .git \
   && carto project.mml > mapnik.xml \
   && cp -a /home/renderer/src/openstreetmap-carto/data/. /home/renderer/src/openstreetmap-carto-vizall-light/data/
+   && cd /home/renderer/src \
+  && git clone https://github.com/AlexAX135/openstreetmap-alexax.git \
+  && git -C openstreetmap-alexax checkout vizall.light.0.7 \
+  && cd openstreetmap-alexax \
+  && rm -rf .git \
+  && carto project.mml > mapnik.xml \
+  && cp -a /home/renderer/src/openstreetmap-carto/data/. /home/renderer/src/openstreetmap-alexax/data/
   
 RUN bash -c 'echo -e "[vizall_light]\nURI=/vizall_light/\nTILEDIR=/var/lib/mod_tile\nXML=/home/renderer/src/openstreetmap-carto-vizall-light/mapnik.xml\nHOST=localhost\nMAXZOOM=20\nTILESIZE=256\n" >> /usr/local/etc/renderd.conf'
- 
+
+RUN bash -c 'echo -e "[alexax]\nURI=/alexax/\nTILEDIR=/var/lib/mod_tile\nXML=/home/renderer/src/openstreetmap-alexax/mapnik.xml\nHOST=localhost\nMAXZOOM=20\nTILESIZE=256\n" >> /usr/local/etc/renderd.conf'
+
+
 # Download render_list_geo
 RUN wget https://raw.githubusercontent.com/alx77/render_list_geo.pl/master/render_list_geo.pl \
 && chmod +x render_list_geo.pl
