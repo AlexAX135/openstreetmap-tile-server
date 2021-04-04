@@ -128,14 +128,14 @@ RUN mkdir -p /home/renderer/src \
  && npm install -g carto@0.18.2 \
  && carto project.mml > mapnik.xml \
  && scripts/get-shapefiles.py \
- && rm /home/renderer/src/openstreetmap-carto/data/*.zip
+ && rm /home/renderer/src/openstreetmap-carto/data/*.zip \
  && cd /home/renderer/src \
   && git clone https://github.com/Jezternz/openstreetmap-carto-vizall-light.git \
   && git -C openstreetmap-carto-vizall-light checkout vizall.light.0.7 \
   && cd openstreetmap-carto-vizall-light \
   && rm -rf .git \
   && carto project.mml > mapnik.xml \
-  && cp -a /home/renderer/src/openstreetmap-carto/data/. /home/renderer/src/openstreetmap-carto-vizall-light/data/
+  && cp -a /home/renderer/src/openstreetmap-carto/data/. /home/renderer/src/openstreetmap-carto-vizall-light/data/ \
    && cd /home/renderer/src \
   && git clone https://github.com/AlexAX135/openstreetmap-alexax.git \
   && git -C openstreetmap-alexax checkout vizall.light.0.7 \
