@@ -129,6 +129,10 @@ RUN mkdir -p /home/renderer/src \
  && carto project.mml > mapnik.xml \
  && scripts/get-shapefiles.py \
  && rm /home/renderer/src/openstreetmap-carto/data/*.zip
+ 
+# Download render_list_geo
+RUN wget https://raw.githubusercontent.com/alx77/render_list_geo.pl/master/render_list_geo.pl \
+&& chmod +x render_list_geo.pl
 
 # Configure renderd
 RUN sed -i 's/renderaccount/renderer/g' /usr/local/etc/renderd.conf \
