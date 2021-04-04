@@ -136,6 +136,8 @@ RUN mkdir -p /home/renderer/src \
   && rm -rf .git \
   && carto project.mml > mapnik.xml \
   && cp -a /home/renderer/src/openstreetmap-carto/data/. /home/renderer/src/openstreetmap-carto-vizall-light/data/
+  
+RUN bash -c 'echo -e "[vizall_light]\nURI=/vizall_light/\nTILEDIR=/var/lib/mod_tile\nXML=/home/renderer/src/openstreetmap-carto-vizall-light/mapnik.xml\nHOST=localhost\nMAXZOOM=20\nTILESIZE=256\n" >> /usr/local/etc/renderd.conf'
  
 # Download render_list_geo
 RUN wget https://raw.githubusercontent.com/alx77/render_list_geo.pl/master/render_list_geo.pl \
