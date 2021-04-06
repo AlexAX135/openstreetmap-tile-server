@@ -138,7 +138,7 @@ RUN mkdir -p /home/renderer/src \
   && cp -a /home/renderer/src/openstreetmap-carto/data/. /home/renderer/src/openstreetmap-carto-vizall-light/data/ \
    && cd /home/renderer/src \
   && git clone https://github.com/AlexAX135/openstreetmap-alexax.git \
-  && git -C openstreetmap-alexax checkout v5.4.1 \
+  && git -C openstreetmap-alexax checkout v5.4.2 \
   && cd openstreetmap-alexax \
   && rm -rf .git \
   && carto project.mml > mapnik.xml \
