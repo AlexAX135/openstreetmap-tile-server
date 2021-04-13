@@ -134,7 +134,7 @@ RUN mkdir -p /home/renderer/src \
  && rm /home/renderer/src/openstreetmap-carto/openstreetmap-carto.style \
  && wget https://raw.githubusercontent.com/AlexAX135/openstreetmap-carto/master/openstreetmap-carto.lua \
  && wget https://raw.githubusercontent.com/AlexAX135/openstreetmap-carto/master/openstreetmap-carto.style
-#1
+#2
 
 # Download render_list_geo
 RUN wget https://raw.githubusercontent.com/alx77/render_list_geo.pl/master/render_list_geo.pl \
