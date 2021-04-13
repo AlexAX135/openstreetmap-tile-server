@@ -123,15 +123,15 @@ RUN mkdir -p /home/renderer/src \
 # Configure stylesheet
 RUN mkdir -p /home/renderer/src \
  && cd /home/renderer/src \
- && git clone --single-branch --branch v5.3.1 https://github.com/gravitystorm/openstreetmap-carto.git --depth 1 \
+ && git clone --single-branch --branch v5.2.0 https://github.com/gravitystorm/openstreetmap-carto.git --depth 1 \
  && cd openstreetmap-carto \
  && rm -rf .git \
  && npm install -g carto@0.18.2 \
  && carto project.mml > mapnik.xml \
  && scripts/get-shapefiles.py \
  && rm /home/renderer/src/openstreetmap-carto/data/*.zip \
- && rm /home/renderer/src/openstreetmap-carto/penstreetmap-carto.lua \
- && rm /home/renderer/src/openstreetmap-carto/penstreetmap-carto.style \
+ && rm /home/renderer/src/openstreetmap-carto/openstreetmap-carto.lua \
+ && rm /home/renderer/src/openstreetmap-carto/openstreetmap-carto.style \
  && wget https://raw.githubusercontent.com/AlexAX135/openstreetmap-carto/master/openstreetmap-carto.lua \
  && wget https://raw.githubusercontent.com/AlexAX135/openstreetmap-carto/master/openstreetmap-carto.style
 
