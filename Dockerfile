@@ -128,16 +128,7 @@ RUN mkdir -p /home/renderer/src \
  && npm install -g carto@0.18.2 \
  && carto project.mml > mapnik.xml \
  && scripts/get-shapefiles.py \
- && rm /home/renderer/src/openstreetmap-carto/data/*.zip \
- && cd /home/renderer/src \
-  && git clone https://github.com/Jezternz/openstreetmap-carto-vizall-light.git \
-  && git -C openstreetmap-carto-vizall-light checkout vizall.light.0.7 \
-  && cd openstreetmap-carto-vizall-light \
-  && rm -rf .git \
-  && carto project.mml > mapnik.xml \
-  && cp -a /home/renderer/src/openstreetmap-carto/data/. /home/renderer/src/openstreetmap-carto-vizall-light/data/ 
-  
-RUN bash -c 'echo -e "[vizall_light]\nURI=/vizall_light/\nTILEDIR=/var/lib/mod_tile\nXML=/home/renderer/src/openstreetmap-carto-vizall-light/mapnik.xml\nHOST=localhost\nMAXZOOM=20\nTILESIZE=256\n" >> /usr/local/etc/renderd.conf'
+ && rm /home/renderer/src/openstreetmap-carto/data/*.zip 
 
 
 # Download render_list_geo
