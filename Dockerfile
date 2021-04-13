@@ -122,7 +122,7 @@ RUN mkdir -p /home/renderer/src \
 # Configure stylesheet
 RUN mkdir -p /home/renderer/src \
  && cd /home/renderer/src \
- && git clone --single-branch --branch v5.2.0 https://github.com/gravitystorm/openstreetmap-carto.git --depth 1 \
+ && git clone --single-branch --branch v5.3.2 https://github.com/AlexAX135/openstreetmap-carto.git --depth 1 \
  && cd openstreetmap-carto \
  && rm -rf .git \
  && npm install -g carto@0.18.2 \
@@ -135,18 +135,9 @@ RUN mkdir -p /home/renderer/src \
   && cd openstreetmap-carto-vizall-light \
   && rm -rf .git \
   && carto project.mml > mapnik.xml \
-  && cp -a /home/renderer/src/openstreetmap-carto/data/. /home/renderer/src/openstreetmap-carto-vizall-light/data/ \
-   && cd /home/renderer/src \
-  && git clone https://github.com/AlexAX135/openstreetmap-alexax.git \
-  && git -C openstreetmap-alexax checkout v5.4.9 \
-  && cd openstreetmap-alexax \
-  && rm -rf .git \
-  && carto project.mml > mapnik.xml \
-  && cp -a /home/renderer/src/openstreetmap-carto/data/. /home/renderer/src/openstreetmap-alexax/data/
+  && cp -a /home/renderer/src/openstreetmap-carto/data/. /home/renderer/src/openstreetmap-carto-vizall-light/data/ 
   
 RUN bash -c 'echo -e "[vizall_light]\nURI=/vizall_light/\nTILEDIR=/var/lib/mod_tile\nXML=/home/renderer/src/openstreetmap-carto-vizall-light/mapnik.xml\nHOST=localhost\nMAXZOOM=20\nTILESIZE=256\n" >> /usr/local/etc/renderd.conf'
-
-RUN bash -c 'echo -e "[alexax]\nURI=/alexax/\nTILEDIR=/var/lib/mod_tile\nXML=/home/renderer/src/openstreetmap-alexax/mapnik.xml\nHOST=localhost\nMAXZOOM=20\nTILESIZE=256\n" >> /usr/local/etc/renderd.conf'
 
 
 # Download render_list_geo
