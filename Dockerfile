@@ -73,6 +73,7 @@ RUN apt-get install -y --no-install-recommends \
   unzip \
   wget \
   zlib1g-dev \
+  nano \
 && apt-get clean autoclean \
 && apt-get autoremove --yes \
 && rm -rf /var/lib/{apt,dpkg,cache,log}/
