@@ -129,7 +129,7 @@ RUN mkdir -p /home/renderer/src \
  && rm -rf .git \
  && npm install -g carto@0.18.2 \
  && carto project.mml > mapnik.xml \
- && scripts/get-shapefiles.py \
+ #&& scripts/get-shapefiles.py \
  && rm /home/renderer/src/openstreetmap-carto/data/*.zip \
  && rm /home/renderer/src/openstreetmap-carto/openstreetmap-carto.lua \
  && rm /home/renderer/src/openstreetmap-carto/openstreetmap-carto.style \
