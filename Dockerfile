@@ -130,7 +130,7 @@ RUN mkdir -p /home/renderer/src \
  && npm install -g carto@0.18.2 \
  && carto project.mml > mapnik.xml \
  #&& scripts/get-shapefiles.py \
- && rm /home/renderer/src/openstreetmap-carto/data/*.zip \
+ #&& rm /home/renderer/src/openstreetmap-carto/data/*.zip \
  && rm /home/renderer/src/openstreetmap-carto/openstreetmap-carto.lua \
  && rm /home/renderer/src/openstreetmap-carto/openstreetmap-carto.style \
  && wget https://raw.githubusercontent.com/AlexAX135/openstreetmap-carto/master/openstreetmap-carto.lua \
