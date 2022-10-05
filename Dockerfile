@@ -20,7 +20,7 @@ RUN cd ~ \
 && rm /home/renderer/src/openstreetmap-carto/openstreetmap-carto.lua \
 && rm /home/renderer/src/openstreetmap-carto/openstreetmap-carto.style \
 && wget https://raw.githubusercontent.com/AlexAX135/openstreetmap-carto/master/openstreetmap-carto.lua \
-&& wget https://raw.githubusercontent.com/AlexAX135/openstreetmap-carto/master/openstreetmap-carto.style
+&& wget https://raw.githubusercontent.com/AlexAX135/openstreetmap-carto/master/openstreetmap-carto.style \
 && rm -rf .git
 
 ###########################################################################################################
