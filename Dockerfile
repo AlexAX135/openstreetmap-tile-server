@@ -17,10 +17,6 @@ RUN cd ~ \
 && sed -i 's/"Noto Sans Tibetan Regular",//g' style/fonts.mss \
 && sed -i 's/"Noto Sans Tibetan Bold",//g' style/fonts.mss \
 && sed -i 's/Noto Sans Syriac Eastern Regular/Noto Sans Syriac Regular/g' style/fonts.mss \
-&& rm /home/renderer/src/openstreetmap-carto/openstreetmap-carto.lua \
-&& rm /home/renderer/src/openstreetmap-carto/openstreetmap-carto.style \
-&& wget https://raw.githubusercontent.com/AlexAX135/openstreetmap-carto/master/openstreetmap-carto.lua \
-&& wget https://raw.githubusercontent.com/AlexAX135/openstreetmap-carto/master/openstreetmap-carto.style \
 && rm -rf .git
 
 ###########################################################################################################
@@ -124,7 +120,10 @@ RUN cd /var/www/html/ \
 # Icon
 RUN wget -O /var/www/html/favicon.ico https://www.openstreetmap.org/favicon.ico
 
-
+RUN rm /home/renderer/src/openstreetmap-carto/openstreetmap-carto.lua \
+&& rm /home/renderer/src/openstreetmap-carto/openstreetmap-carto.style \
+&& wget https://raw.githubusercontent.com/AlexAX135/openstreetmap-carto/master/openstreetmap-carto.lua \
+&& wget https://raw.githubusercontent.com/AlexAX135/openstreetmap-carto/master/openstreetmap-carto.style
 
 # Copy update scripts
 COPY openstreetmap-tiles-update-expire.sh /usr/bin/
