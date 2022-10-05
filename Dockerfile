@@ -120,10 +120,7 @@ RUN cd /var/www/html/ \
 # Icon
 RUN wget -O /var/www/html/favicon.ico https://www.openstreetmap.org/favicon.ico
 
-RUN rm /home/renderer/src/openstreetmap-carto/openstreetmap-carto.lua \
-&& rm /home/renderer/src/openstreetmap-carto/openstreetmap-carto.style \
-&& wget https://raw.githubusercontent.com/AlexAX135/openstreetmap-carto/master/openstreetmap-carto.lua \
-&& wget https://raw.githubusercontent.com/AlexAX135/openstreetmap-carto/master/openstreetmap-carto.style
+
 
 # Copy update scripts
 COPY openstreetmap-tiles-update-expire.sh /usr/bin/
@@ -169,6 +166,14 @@ MAXZOOM=20' >> /etc/renderd.conf \
 COPY --from=compiler-helper-script /home/renderer/src/regional /home/renderer/src/regional
 
 COPY --from=compiler-stylesheet /root/openstreetmap-carto /home/renderer/src/openstreetmap-carto-backup
+
+RUN rm /home/renderer/src/openstreetmap-carto-backup/openstreetmap-carto.lua \
+&& rm /home/renderer/src/openstreetmap-carto-backup/openstreetmap-carto.style \
+&& wget https://raw.githubusercontent.com/AlexAX135/openstreetmap-carto/master/openstreetmap-carto.lua \
+&& wget https://raw.githubusercontent.com/AlexAX135/openstreetmap-carto/master/openstreetmap-carto.style
+
+COPY openstreetmap-carto.lua /home/renderer/src/openstreetmap-carto-backup
+COPY openstreetmap-carto.style /home/renderer/src/openstreetmap-carto-backup
 
 # Start running
 COPY run.sh /
