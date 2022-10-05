@@ -63,6 +63,7 @@ RUN apt-get update \
  liblua5.3-dev \
  lua5.3 \
  mapnik-utils \
+ nano \
  npm \
  osm2pgsql \
  osmium-tool \
