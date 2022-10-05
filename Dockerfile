@@ -17,6 +17,10 @@ RUN cd ~ \
 && sed -i 's/"Noto Sans Tibetan Regular",//g' style/fonts.mss \
 && sed -i 's/"Noto Sans Tibetan Bold",//g' style/fonts.mss \
 && sed -i 's/Noto Sans Syriac Eastern Regular/Noto Sans Syriac Regular/g' style/fonts.mss \
+&& rm /home/renderer/src/openstreetmap-carto/openstreetmap-carto.lua \
+&& rm /home/renderer/src/openstreetmap-carto/openstreetmap-carto.style \
+&& wget https://raw.githubusercontent.com/AlexAX135/openstreetmap-carto/master/openstreetmap-carto.lua \
+&& wget https://raw.githubusercontent.com/AlexAX135/openstreetmap-carto/master/openstreetmap-carto.style
 && rm -rf .git
 
 ###########################################################################################################
