@@ -93,6 +93,10 @@ RUN wget https://github.com/googlefonts/noto-emoji/blob/9a5261d871451f9b5183c934
 # For some reason this one is missing in the default packages
 RUN wget https://github.com/stamen/terrain-classic/blob/master/fonts/unifont-Medium.ttf?raw=true --content-disposition -P /usr/share/fonts/
 
+# Download render_list_geo
+RUN wget https://raw.githubusercontent.com/alx77/render_list_geo.pl/master/render_list_geo.pl \
+&& chmod +x render_list_geo.pl
+
 # Install python libraries
 RUN pip3 install \
  requests \
@@ -120,9 +124,7 @@ RUN cd /var/www/html/ \
 # Icon
 RUN wget -O /var/www/html/favicon.ico https://www.openstreetmap.org/favicon.ico
 
-# Download render_list_geo
-RUN wget https://raw.githubusercontent.com/alx77/render_list_geo.pl/master/render_list_geo.pl \
-&& chmod +x render_list_geo.pl
+
 
 # Copy update scripts
 COPY openstreetmap-tiles-update-expire.sh /usr/bin/
