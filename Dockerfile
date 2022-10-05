@@ -119,6 +119,10 @@ RUN cd /var/www/html/ \
 # Icon
 RUN wget -O /var/www/html/favicon.ico https://www.openstreetmap.org/favicon.ico
 
+# Download render_list_geo
+RUN wget https://raw.githubusercontent.com/alx77/render_list_geo.pl/master/render_list_geo.pl \
+&& chmod +x render_list_geo.pl
+
 # Copy update scripts
 COPY openstreetmap-tiles-update-expire.sh /usr/bin/
 RUN chmod +x /usr/bin/openstreetmap-tiles-update-expire.sh \
