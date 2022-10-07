@@ -78,8 +78,8 @@ RUN apt-get update \
  sudo \
  wget \
 && apt-get clean autoclean \
-&& apt-get autoremove --yes \
-&& rm -rf /var/lib/{apt,dpkg,cache,log}/
+&& apt-get autoremove --yes 
+#&& rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 RUN adduser --disabled-password --gecos "" renderer
 
