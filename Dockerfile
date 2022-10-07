@@ -1,7 +1,7 @@
 FROM ubuntu:22.04 AS compiler-common
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update 
+RUN sudo apt-get update 
 
 RUN apt-get update \
 && apt-get install -y --no-install-recommends \
