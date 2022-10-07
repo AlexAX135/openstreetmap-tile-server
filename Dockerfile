@@ -1,6 +1,8 @@
 FROM ubuntu:22.04 AS compiler-common
 ENV DEBIAN_FRONTEND=noninteractive
 
+RUN apt-get update 
+
 RUN apt-get update \
 && apt-get install -y --no-install-recommends \
  git-core \
@@ -42,9 +44,6 @@ ENV REPLICATION_URL=https://planet.openstreetmap.org/replication/hour/
 ENV MAX_INTERVAL_SECONDS=3600
 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-
-# Get packages
-RUN apt-get update 
 
 # Get packages
 RUN apt-get update \
