@@ -76,10 +76,10 @@ RUN apt-get update \
  python3-pip \
  renderd \
  sudo \
- wget 
-#&& apt-get clean autoclean 
-#&& apt-get autoremove --yes 
-#&& rm -rf /var/lib/{apt,dpkg,cache,log}/
+ wget \
+&& apt-get clean autoclean \
+&& apt-get autoremove --yes \
+&& rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 RUN adduser --disabled-password --gecos "" renderer
 
