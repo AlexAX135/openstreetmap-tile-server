@@ -48,38 +48,7 @@ RUN apt-get update \
 && apt-get install -y --no-install-recommends \
  apache2 \
  cron \
- dateutils \
- fonts-hanazono \
- fonts-noto-cjk \
- fonts-noto-hinted \
- fonts-noto-unhinted \
- fonts-unifont \
- gnupg2 \
- gdal-bin \
- liblua5.3-dev \
- lua5.3 \
- mapnik-utils \
- nano \
- npm \
- osm2pgsql \
- osmium-tool \
- osmosis \
- postgresql-14 \
- postgresql-14-postgis-3 \
- postgresql-14-postgis-3-scripts \
- postgis \
- python-is-python3 \
- python3-mapnik \
- python3-lxml \
- python3-psycopg2 \
- python3-shapely \
- python3-pip \
- renderd \
- sudo \
- wget \
-&& apt-get clean autoclean \
-&& apt-get autoremove --yes \
-&& rm -rf /var/lib/{apt,dpkg,cache,log}/
+ dateutils 
 
 RUN adduser --disabled-password --gecos "" renderer
 
